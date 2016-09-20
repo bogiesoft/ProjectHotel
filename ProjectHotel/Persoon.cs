@@ -13,7 +13,13 @@ namespace ProjectHotel
 
     public class Gast : Persoon
     {
+        public Kamer kamer;
+        public int fitnesstijd;
 
+        public Gast()
+        {
+            
+        }
     }
 
     public class Schoonmaker : Persoon
