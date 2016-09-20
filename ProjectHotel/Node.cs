@@ -9,7 +9,7 @@ namespace ProjectHotel
     public abstract class Node
     {
         Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
-        Gang gang;
+        Gang gang; //Uiteindes van de graph hebben alleen een link naar de vorige node == altijd een gang.
 
         public Node()
         {
@@ -31,7 +31,7 @@ namespace ProjectHotel
     {
         public Dictionary<Node, int> buren;
 
-        public Gang() :base()
+        public Gang() : base()
         {
 
         }
@@ -41,7 +41,6 @@ namespace ProjectHotel
     {
         public Gang gang;
         
-
         public Restaurant()
         {
            
@@ -51,6 +50,17 @@ namespace ProjectHotel
     public class Lift : Node
     {
         List<Persoon> mensen; //moeten allemaal verplaatsen als de lift dat doey.
+
+    }
+
+    public class Trap : Node
+    {
+        public Dictionary<Node, int> buren;
+
+        public Trap() : base()
+        {
+
+        }
 
     }
 
