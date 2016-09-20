@@ -41,6 +41,7 @@ namespace ProjectHotel
     {
         public Gang gang;
         
+        
         public Restaurant()
         {
            

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProjectHotel
 {
-    public class Persoon
+    public abstract class Persoon
     {
+
+    }
+
+    public class Gast : Persoon
+    {
+
+    }
+
+    public class Schoonmaker : Persoon
+    {
+
     }
 }
