@@ -21,12 +21,15 @@ namespace ProjectHotel
     public class Kamer : Node
     {
         public Gang gang;
+        public string naam;
+        public int nummer;
         public bool ingebruik;
         public bool schoongemaakt;
 
-        public Kamer()
+        public Kamer(int nummer)
         {
-            
+            this.nummer = nummer;
+            naam = "Kamer_" + nummer.ToString();
         }
     }
 
