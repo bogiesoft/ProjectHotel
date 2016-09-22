@@ -9,6 +9,10 @@ namespace ProjectHotel
     /// <summary>
     /// Een klasse om de dijkstra *TIJDELIJK* neer te zetten en aan te passen aan de situatie van het hotel.
     /// Dit is de Dijkstra van de les, in principe kunnen we die bij de node klasse toevoegen... wel aangepast ofc.
+    /// 
+    /// Notes:  - Dijkstra gaat alle nodes 1x langs... de afstand wordt op Int32.MaxValue gezet maar dat kan natuurlijk niet in dit geval...
+    ///         - Bij het switchen van "deze" bij de Dijkstra, kan je ook een vorige onthouden (vorige = deze; deze = ...) zodat je alle buren van de nieuwe "deze" kan toevoegen
+    ///           en dan die vorige van de lijst af kan halen..
     /// </summary>
     class Dijkstra
     {
