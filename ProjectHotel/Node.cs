@@ -75,6 +75,10 @@ namespace ProjectHotel
         public Gang gang;
         public bool draaitfilm;
         public int tijdsduur;
+        public Bioscoop()
+        {
+            tijdsduur = 90;
+    }
     }
 
 
