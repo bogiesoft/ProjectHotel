@@ -123,8 +123,6 @@ namespace ProjectHotel
         public Knoop vorige; // ?? Gebruikt bij stappen bijhouden. ??
         public string naam; //Naam van de Knoop.
 
-        //Lijst voor het kortste pad
-        //totaal afstand van dit pad. == afstand
 
         public Knoop(string naam)
         {

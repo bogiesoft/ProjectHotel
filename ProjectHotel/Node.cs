@@ -35,11 +35,24 @@ namespace ProjectHotel
 
     public class Gang : Node
     {
+
         public Dictionary<Node, int> buren;
 
         public Gang() : base()
         {
 
+        }
+    }
+
+    public class Receptie : Node
+    {
+        public List<Kamer> kamers;
+
+        public Dictionary<Node, int> buren;
+
+        public Receptie(List<Kamer> kamers) : base()
+        {
+            this.kamers = kamers;
         }
     }
 
