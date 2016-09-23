@@ -16,5 +16,12 @@ namespace ProjectHotel
         {
             InitializeComponent();
         }
+        
+        private void InstellingB_Click(object sender, EventArgs e)
+        {
+
+            Instellingen Instelling = new Instellingen(2, 1, 50 ,1);
+            Instelling.ShowDialog();
+        }
     }
 }

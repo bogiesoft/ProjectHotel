@@ -61,6 +61,10 @@ namespace ProjectHotel
         public Gang gang;
         public bool draaitfilm;
         public int tijdsduur;
+        public Bioscoop()
+        {
+            tijdsduur = 90;
+        }
     }
 
 
@@ -78,10 +82,10 @@ namespace ProjectHotel
     public class Trap : Node
     {
         public Dictionary<Node, int> buren;
-
+        public int tijdsduur;
         public Trap() : base()
         {
-
+            tijdsduur = 2;
         }
 
     }
