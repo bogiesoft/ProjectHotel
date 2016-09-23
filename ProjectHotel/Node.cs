@@ -38,9 +38,9 @@ namespace ProjectHotel
 
         public Dictionary<Node, int> buren;
 
-        public Gang() : base()
+        public Gang()
         {
-
+            buren = new Dictionary<Node, int>();
         }
     }
 
@@ -50,9 +50,10 @@ namespace ProjectHotel
 
         public Dictionary<Node, int> buren;
 
-        public Receptie(List<Kamer> kamers) : base()
+        public Receptie(List<Kamer> kamers)
         {
             this.kamers = kamers;
+            buren = new Dictionary<Node, int>();
         }
     }
 
@@ -92,9 +93,9 @@ namespace ProjectHotel
     {
         public Dictionary<Node, int> buren;
 
-        public Trap() : base()
+        public Trap()
         {
-
+            buren = new Dictionary<Node, int>();
         }
 
     }
