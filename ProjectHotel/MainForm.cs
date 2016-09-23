@@ -17,17 +17,7 @@ namespace ProjectHotel
             InitializeComponent();
             InitializeHotel();
         }
-
-        void DrawExample()
-        {
-            Bitmap bmp = new Bitmap(output.Width, output.Height);
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.DrawLine(new Pen(Color.Red), 0, 0, 10, 10);
-                g.DrawLine(new Pen(Color.Black), 0, 0, 2, 30);
-            }
-            output.Image = bmp;
-        }
+        
         /// <summary>
         /// Methode waarin het hotel wordt aangemaakt en gekoppeld.
         /// </summary>
