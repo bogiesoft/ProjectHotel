@@ -52,11 +52,12 @@
   <ItemGroup>
     <Compile Include="Dijkstra.cs" />
     <Compile Include="Hotel.cs" />
-    <Compile Include="Instellingen.cs">
+    <Compile Include="Instellingen.cs" />
+    <Compile Include="InstellingenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Instellingen.Designer.cs">
-      <DependentUpon>Instellingen.cs</DependentUpon>
+    <Compile Include="InstellingenForm.Designer.cs">
+      <DependentUpon>InstellingenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -68,8 +69,8 @@
     <Compile Include="Persoon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Instellingen.resx">
-      <DependentUpon>Instellingen.cs</DependentUpon>
+    <EmbeddedResource Include="InstellingenForm.resx">
+      <DependentUpon>InstellingenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
