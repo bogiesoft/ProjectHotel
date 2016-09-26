@@ -46,7 +46,7 @@ namespace ProjectHotel
     public class Receptie : Node
     {
         public List<Kamer> kamers; //Lijst met kamers van het hotel
-        public List<Gast> gasten; //Rij met gasten voor de receptie
+        public List<Gast> wachtrij; //Rij met gasten voor de receptie
         public Gast current; //Geeft de huidige gast bij de receptie aan
         public Dictionary<Node, int> buren; //Lijst met buren en de tijdsafstand daar naartoe
 
@@ -59,13 +59,14 @@ namespace ProjectHotel
             this.kamers = kamers; //Slaat de gekregen kamerlijst op
             buren = new Dictionary<Node, int>();
         }
+        
 
         
         /// <summary>
         /// Methode die een lege kamer pakt of null terug geeft als er geen kamers meer zijn.
         /// </summary>
         /// <returns>Een lege kamer voor een gast.</returns>
-        Kamer GetKamer()
+        public Kamer GetKamer()
         {
             foreach(Kamer k in kamers)
             {
