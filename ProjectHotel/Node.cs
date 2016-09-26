@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +13,11 @@ namespace ProjectHotel
         Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         Gang gang; //Uiteindes van de graph hebben alleen een link naar de vorige node == altijd een gang.
         int tijdsduur;
-
+        protected Instellingen Instelling = new Instellingen();
         public Node()
         {
             buren = new Dictionary<Node, int>();
+            Instelling = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
         }
     }
 
@@ -77,8 +80,8 @@ namespace ProjectHotel
         public int tijdsduur;
         public Bioscoop()
         {
-            tijdsduur = 90;
-    }
+            tijdsduur = Instelling.Bioscoopduur;
+        }
     }
 
 

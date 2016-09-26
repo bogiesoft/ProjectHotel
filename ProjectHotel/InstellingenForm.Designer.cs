@@ -38,11 +38,15 @@
             this.TrapTB = new System.Windows.Forms.TextBox();
             this.DoodTB = new System.Windows.Forms.TextBox();
             this.DoodL = new System.Windows.Forms.Label();
+            this.RestaurantTB = new System.Windows.Forms.TextBox();
+            this.SchoonnoodTB = new System.Windows.Forms.TextBox();
+            this.RestaurantL = new System.Windows.Forms.Label();
+            this.SchoonnoodL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // OpslaanB
             // 
-            this.OpslaanB.Location = new System.Drawing.Point(178, 149);
+            this.OpslaanB.Location = new System.Drawing.Point(178, 222);
             this.OpslaanB.Name = "OpslaanB";
             this.OpslaanB.Size = new System.Drawing.Size(75, 23);
             this.OpslaanB.TabIndex = 0;
@@ -52,7 +56,7 @@
             // 
             // AnnuleerB
             // 
-            this.AnnuleerB.Location = new System.Drawing.Point(16, 149);
+            this.AnnuleerB.Location = new System.Drawing.Point(10, 222);
             this.AnnuleerB.Name = "AnnuleerB";
             this.AnnuleerB.Size = new System.Drawing.Size(75, 23);
             this.AnnuleerB.TabIndex = 1;
@@ -124,11 +128,47 @@
             this.DoodL.TabIndex = 9;
             this.DoodL.Text = "Tijdsduur voor de dood";
             // 
-            // Instellingen
+            // RestaurantTB
+            // 
+            this.RestaurantTB.Location = new System.Drawing.Point(153, 149);
+            this.RestaurantTB.Name = "RestaurantTB";
+            this.RestaurantTB.Size = new System.Drawing.Size(100, 20);
+            this.RestaurantTB.TabIndex = 10;
+            // 
+            // SchoonnoodTB
+            // 
+            this.SchoonnoodTB.Location = new System.Drawing.Point(153, 185);
+            this.SchoonnoodTB.Name = "SchoonnoodTB";
+            this.SchoonnoodTB.Size = new System.Drawing.Size(100, 20);
+            this.SchoonnoodTB.TabIndex = 11;
+            // 
+            // RestaurantL
+            // 
+            this.RestaurantL.AutoSize = true;
+            this.RestaurantL.Location = new System.Drawing.Point(13, 152);
+            this.RestaurantL.Name = "RestaurantL";
+            this.RestaurantL.Size = new System.Drawing.Size(83, 13);
+            this.RestaurantL.TabIndex = 12;
+            this.RestaurantL.Text = "Restaurant duur";
+            // 
+            // SchoonnoodL
+            // 
+            this.SchoonnoodL.AutoSize = true;
+            this.SchoonnoodL.Location = new System.Drawing.Point(13, 188);
+            this.SchoonnoodL.Name = "SchoonnoodL";
+            this.SchoonnoodL.Size = new System.Drawing.Size(123, 13);
+            this.SchoonnoodL.TabIndex = 13;
+            this.SchoonnoodL.Text = "Schoonmaaksduur nood";
+            // 
+            // InstellingenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 185);
+            this.ClientSize = new System.Drawing.Size(271, 257);
+            this.Controls.Add(this.SchoonnoodL);
+            this.Controls.Add(this.RestaurantL);
+            this.Controls.Add(this.SchoonnoodTB);
+            this.Controls.Add(this.RestaurantTB);
             this.Controls.Add(this.DoodL);
             this.Controls.Add(this.DoodTB);
             this.Controls.Add(this.TrapTB);
@@ -141,7 +181,7 @@
             this.Controls.Add(this.OpslaanB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Instellingen";
+            this.Name = "InstellingenForm";
             this.Text = "Instellingen";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -160,5 +200,9 @@
         private System.Windows.Forms.TextBox TrapTB;
         private System.Windows.Forms.TextBox DoodTB;
         private System.Windows.Forms.Label DoodL;
+        private System.Windows.Forms.TextBox RestaurantTB;
+        private System.Windows.Forms.TextBox SchoonnoodTB;
+        private System.Windows.Forms.Label RestaurantL;
+        private System.Windows.Forms.Label SchoonnoodL;
     }
 }

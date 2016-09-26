@@ -46,9 +46,9 @@
             // 
             // output
             // 
-            this.output.Location = new System.Drawing.Point(13, 13);
+            this.output.Location = new System.Drawing.Point(20, 13);
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(960, 491);
+            this.output.Size = new System.Drawing.Size(960, 490);
             this.output.TabIndex = 1;
             this.output.TabStop = false;
             // 

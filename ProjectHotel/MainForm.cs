@@ -16,13 +16,10 @@ namespace ProjectHotel
     {
         public MainForm()
         {
+            Instellingen Instellingen = new Instellingen();
             if (!File.Exists(@"..\..\..\config.json"))
             {
-                Instellingen Instellingen = new Instellingen();
-                Instellingen.Schoonmaakduur = 5;
-                Instellingen.Bioscoopduur = 90;
-                Instellingen.Trapduur = 2;
-                Instellingen.Doodsduur = 10;
+                
                 File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
             }
             InitializeComponent();
