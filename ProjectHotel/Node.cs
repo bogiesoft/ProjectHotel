@@ -10,9 +10,10 @@ namespace ProjectHotel
 {
     public abstract class Node
     {
-        Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
-        Gang gang; //Uiteindes van de graph hebben alleen een link naar de vorige node == altijd een gang.
+        public string naam;
+        public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         int tijdsduur;
+        
 
         protected Instellingen Instelling = new Instellingen();
 
@@ -23,10 +24,26 @@ namespace ProjectHotel
         }
     }
 
+    public class DijkstraNode : Node
+    {
+        public Node bron;
+        public DijkstraNode vorige;
+        public int afstand;
+        public Dictionary<DijkstraNode, int> buren;
+
+        public DijkstraNode(Node source)
+        {
+            bron = source;
+            afstand = Int32.MaxValue / 2;
+            buren = new Dictionary<DijkstraNode, int>();
+
+            naam = source.naam;
+        }
+    }
+
     public class Kamer : Node
     {
         public Gang gang;
-        public string naam;
         public int nummer;
         public bool ingebruik;
         public bool schoongemaakt;
@@ -40,11 +57,11 @@ namespace ProjectHotel
 
     public class Gang : Node
     {
-        public Dictionary<Node, int> buren;
 
-        public Gang()
+        public Gang(int x)
         {
             buren = new Dictionary<Node, int>();
+            naam = "Gang_" + x;
         }
     }
 
@@ -61,28 +78,9 @@ namespace ProjectHotel
         /// <param name="kamers">Lijst met alle Kamers in het hotel.</param>
         public Receptie(List<Kamer> kamers)
         {
+            naam = "Receptie";
             this.kamers = kamers; //Slaat de gekregen kamerlijst op
             buren = new Dictionary<Node, int>();
-        }
-        
-
-        
-        /// <summary>
-        /// Methode die een lege kamer pakt of null terug geeft als er geen kamers meer zijn.
-        /// </summary>
-        /// <returns>Een lege kamer voor een gast.</returns>
-        public Kamer GetKamer()
-        {
-            foreach(Kamer k in kamers)
-            {
-                if (!k.ingebruik)
-                {
-                    return k; //Als er een lege kamer is gevonden wordt deze gegeven
-                }
-            }
-
-            return null; //Als er geen kamers zijn, niks terug geven.
-
         }
         
     }
@@ -94,9 +92,9 @@ namespace ProjectHotel
         public int tijdsduur;
         
         
-        public Restaurant()
+        public Restaurant(string naam)
         {
-           
+            this.naam = naam;
         }
     }
 
@@ -105,9 +103,11 @@ namespace ProjectHotel
         public Gang gang;
         public bool draaitfilm;
         public int tijdsduur;
+
         public Bioscoop()
         {
             tijdsduur = Instelling.Bioscoopduur;
+            naam = "Bioscoop";
         }
     }
 
@@ -120,7 +120,6 @@ namespace ProjectHotel
     public class Lift : Node
     {
         List<Persoon> mensen; //moeten allemaal verplaatsen als de lift dat doey.
-
     }
 
     public class Trap : Node

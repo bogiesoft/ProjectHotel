@@ -40,10 +40,10 @@ namespace ProjectHotel
             Receptie lobby = new Receptie(kamers); //Maakt de receptie aan
 
             //Maakt de gangen aan
-            Gang a_1 = new Gang();
-            Gang a_2 = new Gang();
-            Gang a_3 = new Gang();
-            Gang a_4 = new Gang();
+            Gang a_1 = new Gang(1);
+            Gang a_2 = new Gang(2);
+            Gang a_3 = new Gang(3);
+            Gang a_4 = new Gang(4);
 
 
             //Koppelt de aangemaakte gangen aan elkaar en de lobby.
