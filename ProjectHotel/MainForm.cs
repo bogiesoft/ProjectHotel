@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,15 @@ namespace ProjectHotel
     {
         public MainForm()
         {
+            if (!File.Exists(@"..\..\..\config.json"))
+            {
+                Instellingen Instellingen = new Instellingen();
+                Instellingen.Schoonmaakduur = 5;
+                Instellingen.Bioscoopduur = 90;
+                Instellingen.Trapduur = 2;
+                Instellingen.Doodsduur = 10;
+                File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
+            }
             InitializeComponent();
             InitializeHotel();
         }
@@ -75,7 +86,7 @@ namespace ProjectHotel
         private void InstellingB_Click(object sender, EventArgs e)
         {
 
-            Instellingen Instelling = new Instellingen(2, 1, 50 ,1);
+            InstellingenForm Instelling = new InstellingenForm();
             Instelling.ShowDialog();
         }
     }
