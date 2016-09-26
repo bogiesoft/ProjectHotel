@@ -19,6 +19,7 @@ namespace ProjectHotel
         {
             Instellingen = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
             InitializeComponent();
+            TijdeenCB.SelectedItem = Instellingen.Tijdseenheid.ToString();
             SchoonTB.Text = Instellingen.Schoonmaakduur.ToString();
             BiosTB.Text = Instellingen.Bioscoopduur.ToString();
             TrapTB.Text = Instellingen.Trapduur.ToString();
@@ -36,12 +37,13 @@ namespace ProjectHotel
         {
             if (!SchoonTB.Text.All(char.IsDigit) || !BiosTB.Text.All(char.IsDigit) || !TrapTB.Text.All(char.IsDigit) || !DoodTB.Text.All(char.IsDigit) || 
                 !RestaurantTB.Text.All(char.IsDigit) || !SchoonnoodTB.Text.All(char.IsDigit) || SchoonTB.Text.Equals("") || BiosTB.Text.Equals("") || 
-                TrapTB.Text.Equals("") || DoodTB.Text.Equals("") || RestaurantTB.Text.Equals("") || SchoonnoodTB.Text.Equals(""))
+                TrapTB.Text.Equals("") || DoodTB.Text.Equals("") || RestaurantTB.Text.Equals("") || SchoonnoodTB.Text.Equals("") || TijdeenCB.Text.Equals(""))
             {
                 MessageBox.Show("Vul alle velden correct in aub");
             }
             else
             {
+                Instellingen.Tijdseenheid = Double.Parse(TijdeenCB.Text);
                 Instellingen.Schoonmaakduur = Int32.Parse(SchoonTB.Text);
                 Instellingen.Bioscoopduur = Int32.Parse(BiosTB.Text);
                 Instellingen.Trapduur = Int32.Parse(TrapTB.Text);

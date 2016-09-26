@@ -16,10 +16,9 @@ namespace ProjectHotel
     {
         public MainForm()
         {
-            Instellingen Instellingen = new Instellingen();
             if (!File.Exists(@"..\..\..\config.json"))
             {
-                
+                Instellingen Instellingen = new Instellingen();
                 File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
             }
             InitializeComponent();
