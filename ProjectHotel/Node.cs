@@ -47,11 +47,11 @@ namespace ProjectHotel
     {
         public List<Kamer> kamers; //Lijst met kamers van het hotel
         public List<Gast> gasten; //Rij met gasten voor de receptie
-
+        public Gast current; //Geeft de huidige gast bij de receptie aan
         public Dictionary<Node, int> buren; //Lijst met buren en de tijdsafstand daar naartoe
 
         /// <summary>
-        /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers
+        /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers.
         /// </summary>
         /// <param name="kamers">Lijst met alle Kamers in het hotel.</param>
         public Receptie(List<Kamer> kamers)
@@ -60,8 +60,12 @@ namespace ProjectHotel
             buren = new Dictionary<Node, int>();
         }
 
-
-        public Kamer GetKamer()
+        
+        /// <summary>
+        /// Methode die een lege kamer pakt of null terug geeft als er geen kamers meer zijn.
+        /// </summary>
+        /// <returns>Een lege kamer voor een gast.</returns>
+        Kamer GetKamer()
         {
             foreach(Kamer k in kamers)
             {
