@@ -1,6 +1,6 @@
 ﻿namespace ProjectHotel
 {
-    partial class Instellingen
+    partial class InstellingenForm
     {
         /// <summary>
         /// Required designer variable.
