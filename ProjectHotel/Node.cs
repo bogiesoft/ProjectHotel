@@ -38,7 +38,6 @@ namespace ProjectHotel
 
     public class Gang : Node
     {
-
         public Dictionary<Node, int> buren;
 
         public Gang()
@@ -49,15 +48,41 @@ namespace ProjectHotel
 
     public class Receptie : Node
     {
-        public List<Kamer> kamers;
+        public List<Kamer> kamers; //Lijst met kamers van het hotel
+        public List<Gast> wachtrij; //Rij met gasten voor de receptie
+        public Gast current; //Geeft de huidige gast bij de receptie aan
+        public Dictionary<Node, int> buren; //Lijst met buren en de tijdsafstand daar naartoe
 
-        public Dictionary<Node, int> buren;
-
+        /// <summary>
+        /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers.
+        /// </summary>
+        /// <param name="kamers">Lijst met alle Kamers in het hotel.</param>
         public Receptie(List<Kamer> kamers)
         {
-            this.kamers = kamers;
+            this.kamers = kamers; //Slaat de gekregen kamerlijst op
             buren = new Dictionary<Node, int>();
         }
+        
+
+        
+        /// <summary>
+        /// Methode die een lege kamer pakt of null terug geeft als er geen kamers meer zijn.
+        /// </summary>
+        /// <returns>Een lege kamer voor een gast.</returns>
+        public Kamer GetKamer()
+        {
+            foreach(Kamer k in kamers)
+            {
+                if (!k.ingebruik)
+                {
+                    return k; //Als er een lege kamer is gevonden wordt deze gegeven
+                }
+            }
+
+            return null; //Als er geen kamers zijn, niks terug geven.
+
+        }
+        
     }
 
     public class Restaurant : Node
