@@ -13,7 +13,9 @@ namespace ProjectHotel
         Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         Gang gang; //Uiteindes van de graph hebben alleen een link naar de vorige node == altijd een gang.
         int tijdsduur;
+
         protected Instellingen Instelling = new Instellingen();
+
         public Node()
         {
             buren = new Dictionary<Node, int>();
