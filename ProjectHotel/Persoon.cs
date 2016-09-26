@@ -8,7 +8,9 @@ namespace ProjectHotel
 {
     public abstract class Persoon
     {
+        public Node locatie;
 
+        
     }
 
     public class Gast : Persoon
@@ -18,7 +20,15 @@ namespace ProjectHotel
 
         public Gast()
         {
-            
+            locatie = null;
+            kamer = null;
+        }
+
+        public void PrintPath()
+        {
+            DijkstraNode start = new DijkstraNode(locatie);
+            start.afstand = 0;
+            Console.WriteLine(start.Dijkstra(start, new DijkstraNode(kamer)));
         }
     }
 

@@ -12,6 +12,7 @@ namespace ProjectHotel
     {
         public string naam;
         public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
+        public int afstand;
         int tijdsduur;
         
 
@@ -28,8 +29,7 @@ namespace ProjectHotel
     {
         public Node bron;
         public DijkstraNode vorige;
-        public int afstand;
-        public Dictionary<DijkstraNode, int> buren;
+        public new Dictionary<DijkstraNode, int> buren;
 
         public DijkstraNode(Node source)
         {
@@ -38,6 +38,83 @@ namespace ProjectHotel
             buren = new Dictionary<DijkstraNode, int>();
 
             naam = source.naam;
+
+            foreach(KeyValuePair<Node, int> n in source.buren)
+            {
+                Console.WriteLine(n.Key.naam);
+                this.buren.Add(new DijkstraNode(n.Key), n.Value);
+            }
+        }
+
+        public List<DijkstraNode> open = new List<DijkstraNode>();
+
+        public string Dijkstra(DijkstraNode begin, DijkstraNode eind)
+        {
+            DijkstraNode deze = begin;
+
+            while (!Bezoek(deze, eind))
+            {
+                //pak het tot nu toe kortste pad
+                deze = open.Aggregate((l, r) => l.afstand < r.afstand ? l : r);
+            }
+
+            return maakpad(eind);
+        }
+
+        string maakpad(DijkstraNode doel)
+        {
+            DijkstraNode current = doel;
+            List<string> nodes = new List<string>();
+
+            while (current.vorige != null)
+            {
+                nodes.Add(current.vorige.naam);
+                current = current.vorige;
+            }
+
+            string pad = "";
+
+            nodes.Reverse();
+
+            foreach (string x in nodes)
+            {
+                pad = pad + " " + x;
+            }
+
+            pad = pad + " " + doel.naam;
+
+            return pad;
+        }
+
+        bool Bezoek(DijkstraNode deze, DijkstraNode eind)
+        {
+            Console.WriteLine("Ik bezoek knoop: " + deze.naam);
+
+            //checken op eind
+            if (deze == eind)
+            {
+                return true;
+            }
+
+            //niet meer bezoeken
+            if (open.Contains(deze))
+            {
+                open.Remove(deze);
+            }
+
+            //buren aflopen
+            foreach (KeyValuePair<DijkstraNode, int> x in deze.buren)
+            {
+                int nieuweAfstand = deze.afstand + x.Value;
+                if (nieuweAfstand < x.Key.afstand)
+                {
+                    x.Key.afstand = nieuweAfstand; //nieuwe afstand zetten
+                    x.Key.vorige = deze; //route van pad onthouden
+                    open.Add(x.Key); //nog bezoeken
+                }
+            }
+
+            return false;
         }
     }
 

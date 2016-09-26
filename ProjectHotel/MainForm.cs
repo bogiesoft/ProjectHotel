@@ -61,8 +61,15 @@ namespace ProjectHotel
             a_3.buren.Add(kamers[2], 0);
 
             a_4.buren.Add(kamers[3], 0);
-            
+
             #endregion
+
+            //#region DijkstraTest
+            //Gast gast = new Gast();
+            //gast.locatie = lobby;
+            //gast.kamer = kamers[1];
+            //gast.PrintPath();
+            //#endregion
         }
 
         void Print()
