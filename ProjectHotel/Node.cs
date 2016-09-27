@@ -12,7 +12,6 @@ namespace ProjectHotel
     {
         public string naam;
         public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
-        public int afstand;
         int tijdsduur;
         
 
@@ -20,7 +19,6 @@ namespace ProjectHotel
 
         public Node()
         {
-            buren = new Dictionary<Node, int>();
             Instelling = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
         }
     }
@@ -29,26 +27,27 @@ namespace ProjectHotel
     {
         public Node bron;
         public DijkstraNode vorige;
-        public new Dictionary<DijkstraNode, int> buren;
+        public Dictionary<DijkstraNode, int> dijkstraburen;
+        public int afstand;
+        public List<DijkstraNode> open;
 
         public DijkstraNode(Node source)
         {
             bron = source;
             afstand = Int32.MaxValue / 2;
-            buren = new Dictionary<DijkstraNode, int>();
+            dijkstraburen = new Dictionary<DijkstraNode, int>();
 
+            open = new List<DijkstraNode>();
             naam = source.naam;
 
-            foreach(KeyValuePair<Node, int> n in source.buren)
+            foreach(KeyValuePair<Node, int> n in bron.buren)
             {
-                Console.WriteLine(n.Key.naam);
-                this.buren.Add(new DijkstraNode(n.Key), n.Value);
+                dijkstraburen.Add(new DijkstraNode(n.Key), n.Value);
             }
         }
+        
 
-        public List<DijkstraNode> open = new List<DijkstraNode>();
-
-        public string Dijkstra(DijkstraNode begin, DijkstraNode eind)
+        public string Dijkstra(DijkstraNode begin, Node eind)
         {
             DijkstraNode deze = begin;
 
@@ -58,7 +57,7 @@ namespace ProjectHotel
                 deze = open.Aggregate((l, r) => l.afstand < r.afstand ? l : r);
             }
 
-            return maakpad(eind);
+            return maakpad(deze);
         }
 
         string maakpad(DijkstraNode doel)
@@ -86,12 +85,12 @@ namespace ProjectHotel
             return pad;
         }
 
-        bool Bezoek(DijkstraNode deze, DijkstraNode eind)
+        bool Bezoek(DijkstraNode deze, Node eind)
         {
             Console.WriteLine("Ik bezoek knoop: " + deze.naam);
 
             //checken op eind
-            if (deze == eind)
+            if (deze.bron == eind)
             {
                 return true;
             }
@@ -103,7 +102,7 @@ namespace ProjectHotel
             }
 
             //buren aflopen
-            foreach (KeyValuePair<DijkstraNode, int> x in deze.buren)
+            foreach (KeyValuePair<DijkstraNode, int> x in deze.dijkstraburen)
             {
                 int nieuweAfstand = deze.afstand + x.Value;
                 if (nieuweAfstand < x.Key.afstand)
@@ -120,7 +119,6 @@ namespace ProjectHotel
 
     public class Kamer : Node
     {
-        public Gang gang;
         public int nummer;
         public bool ingebruik;
         public bool schoongemaakt;
@@ -129,6 +127,7 @@ namespace ProjectHotel
         {
             this.nummer = nummer;
             naam = "Kamer_" + nummer.ToString();
+            buren = new Dictionary<Node, int>();
         }
     }
 
@@ -175,7 +174,6 @@ namespace ProjectHotel
 
     public class Bioscoop : Node
     {
-        public Gang gang;
         public bool draaitfilm;
         public int tijdsduur;
 
@@ -183,15 +181,16 @@ namespace ProjectHotel
         {
             tijdsduur = Instelling.Bioscoopduur;
             naam = "Bioscoop";
+            buren = new Dictionary<Node, int>();
         }
     }
 
 
     public class Fitness : Node
     {
-        public Gang gang;
         //tijdsduur bepaald de gast.
     }
+
     public class Lift : Node
     {
         List<Persoon> mensen; //moeten allemaal verplaatsen als de lift dat doey.
@@ -199,8 +198,6 @@ namespace ProjectHotel
 
     public class Trap : Node
     {
-        public Dictionary<Node, int> buren;
-
         public Trap()
         {
             buren = new Dictionary<Node, int>();

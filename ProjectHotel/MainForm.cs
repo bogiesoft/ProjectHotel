@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using ProjectHotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,16 +14,13 @@ namespace ProjectHotel
 {
     public partial class MainForm : Form
     {
-        Hoteloverzicht Overzicht = new Hoteloverzicht();
         public MainForm()
         {
-            List<Hoteloverzicht> Overzicht = JsonConvert.DeserializeObject<List<Hoteloverzicht>>(File.ReadAllText(@"..\..\..\Hotel.json"));
             if (!File.Exists(@"..\..\..\config.json"))
             {
                 Instellingen Instellingen = new Instellingen();
                 File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
             }
-
             InitializeComponent();
             InitializeHotel();
         }
@@ -57,23 +53,28 @@ namespace ProjectHotel
 
             a_1.buren.Add(a_2, 1);
             a_1.buren.Add(kamers[0], 0);
+            //kamers[0].buren.Add(a_1, 0);
 
             a_2.buren.Add(a_3, 1);
             a_2.buren.Add(kamers[1], 0);
+            //kamers[1].buren.Add(a_2, 0);
 
             a_3.buren.Add(a_4, 1);
             a_3.buren.Add(kamers[2], 0);
+            //kamers[2].buren.Add(a_3, 0);
 
             a_4.buren.Add(kamers[3], 0);
+            //kamers[3].buren.Add(a_4, 0);
 
             #endregion
 
-            //#region DijkstraTest
+            #region DijkstraTest
             Gast gast = new Gast();
             gast.locatie = lobby;
             gast.kamer = kamers[1];
-            gast.PrintPath();
-            //#endregion
+            gast.PrintPath(gast.kamer);
+            //gast.PrintPath(lobby);
+            #endregion
         }
 
         void Print()

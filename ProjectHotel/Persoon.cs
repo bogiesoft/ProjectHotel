@@ -24,11 +24,12 @@ namespace ProjectHotel
             kamer = null;
         }
 
-        public void PrintPath()
+        public void PrintPath(Node bestemming)
         {
             DijkstraNode start = new DijkstraNode(locatie);
             start.afstand = 0;
-            Console.WriteLine(start.Dijkstra(start, new DijkstraNode(kamer)));
+            Console.WriteLine(start.Dijkstra(start, bestemming));
+            locatie = bestemming;
         }
     }
 
