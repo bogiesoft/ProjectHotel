@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ProjectHotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,10 @@ namespace ProjectHotel
 {
     public partial class MainForm : Form
     {
+        Hoteloverzicht Overzicht = new Hoteloverzicht();
         public MainForm()
         {
+            List<Hoteloverzicht> Overzicht = JsonConvert.DeserializeObject<List<Hoteloverzicht>>(File.ReadAllText(@"..\..\..\Hotel.json"));
             if (!File.Exists(@"..\..\..\config.json"))
             {
                 Instellingen Instellingen = new Instellingen();

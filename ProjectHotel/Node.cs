@@ -155,6 +155,7 @@ namespace ProjectHotel
         {
             naam = "Receptie";
             this.kamers = kamers; //Slaat de gekregen kamerlijst op
+            buren = new Dictionary<Node, int>();
         }
         
     }
