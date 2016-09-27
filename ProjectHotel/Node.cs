@@ -147,7 +147,6 @@ namespace ProjectHotel
         public List<Kamer> kamers; //Lijst met kamers van het hotel
         public List<Gast> wachtrij; //Rij met gasten voor de receptie
         public Gast current; //Geeft de huidige gast bij de receptie aan
-        public Dictionary<Node, int> buren; //Lijst met buren en de tijdsafstand daar naartoe
 
         /// <summary>
         /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers.
@@ -157,7 +156,6 @@ namespace ProjectHotel
         {
             naam = "Receptie";
             this.kamers = kamers; //Slaat de gekregen kamerlijst op
-            buren = new Dictionary<Node, int>();
         }
         
     }
