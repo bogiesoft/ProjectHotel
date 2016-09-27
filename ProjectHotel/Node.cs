@@ -40,9 +40,12 @@ namespace ProjectHotel
             open = new List<DijkstraNode>();
             naam = source.naam;
 
+            Console.WriteLine(bron.buren.Count);
+
             foreach(KeyValuePair<Node, int> n in bron.buren)
             {
                 dijkstraburen.Add(new DijkstraNode(n.Key), n.Value);
+                Console.WriteLine(dijkstraburen.Count);
             }
         }
         
@@ -54,6 +57,7 @@ namespace ProjectHotel
             while (!Bezoek(deze, eind))
             {
                 //pak het tot nu toe kortste pad
+                
                 deze = open.Aggregate((l, r) => l.afstand < r.afstand ? l : r);
             }
 
@@ -100,6 +104,7 @@ namespace ProjectHotel
             {
                 open.Remove(deze);
             }
+
 
             //buren aflopen
             foreach (KeyValuePair<DijkstraNode, int> x in deze.dijkstraburen)
