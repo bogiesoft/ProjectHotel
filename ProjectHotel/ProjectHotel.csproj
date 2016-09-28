@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Dijkstra.cs" />
     <Compile Include="Hotel.cs" />
+    <Compile Include="HotelInlezen.cs" />
     <Compile Include="Models\Instellingen.cs" />
     <Compile Include="InstellingenForm.cs">
       <SubType>Form</SubType>

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace ProjectHotel
         public string naam;
         public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         int tijdsduur;
+        public Point Position { get; set; }
+        public Point Dimension { get; set; }
 
         protected Instellingen Instelling = new Instellingen();
 
@@ -153,6 +156,7 @@ namespace ProjectHotel
         public int nummer;
         public bool ingebruik;
         public bool schoongemaakt;
+        public string Classification { get; set; }
 
         public Kamer(int nummer)
         {
@@ -196,9 +200,10 @@ namespace ProjectHotel
         public Gang gang;
         public int maxklanten;
         public int tijdsduur;
-        
-        
-        public Restaurant(string naam)
+        public int Capacity { get; set; }
+
+
+        public Restaurant()
         {
             this.naam = naam;
         }
