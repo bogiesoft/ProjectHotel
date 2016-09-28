@@ -11,8 +11,8 @@ namespace ProjectHotel
 {
     class HotelInlezen
     {
-        public List<Kamer> Kamers;
-        public List<Node> Faciliteiten;
+        public List<Kamer> Kamers { get; set; }
+        public List<Node> Faciliteiten { get; set; }
         Hoteloverzicht Overzicht = new Hoteloverzicht();
         public HotelInlezen()
         {
@@ -43,6 +43,7 @@ namespace ProjectHotel
                         Restaurant restaurant = new Restaurant();
                         restaurant.Position = item.Position;
                         restaurant.Dimension = item.Dimension;
+                        restaurant.Capacity = item.Capacity;
                         Faciliteiten.Add(restaurant);
                         break;
                     case "Fitness":
@@ -52,12 +53,6 @@ namespace ProjectHotel
                         Faciliteiten.Add(fitness);
                         break;
                 }
-
-                //Console.WriteLine(item.Classification);
-                //Console.WriteLine(item.AreaType);
-                //Console.WriteLine(item.Capacity);
-                //Console.WriteLine(item.Dimension);
-                //Console.WriteLine(item.Position);
             }
         }
     }
