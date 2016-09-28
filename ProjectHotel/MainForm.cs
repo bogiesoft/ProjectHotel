@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelEvents;
 
 namespace ProjectHotel
 {
@@ -94,7 +95,11 @@ namespace ProjectHotel
             #endregion
 
             #region Dll Pogingen
-            
+            HotelEvent test = new HotelEvent(); //Maakt een nieuw hotel event aan.
+            test.Data = new Dictionary<string, string>(); //Data is een dictionary string string... waarvoor???
+            test.EventType = HotelEventType.GODZILLA; //eventtype is een int maar moet van enum komen. voor enum opties, haal alles tot de punt weg.
+            test.Message = "Help Godzilla!"; //Message is een string, waarschijnlijk een bericht dat op de display komt
+            test.Time = 100; //Time is een int, waarschijnlijk de tijd dat het event duurt.
             #endregion
         }
 
