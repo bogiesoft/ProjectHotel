@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dijkstra.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="Models\Instellingen.cs" />
     <Compile Include="InstellingenForm.cs">
