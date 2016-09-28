@@ -13,12 +13,12 @@ namespace ProjectHotel
         public string naam;
         public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         int tijdsduur;
-        
 
         protected Instellingen Instelling = new Instellingen();
 
         public Node()
         {
+            
             Instelling = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
         }
     }
@@ -38,17 +38,44 @@ namespace ProjectHotel
             dijkstraburen = new Dictionary<DijkstraNode, int>();
 
             open = new List<DijkstraNode>();
-            naam = source.naam;
+            naam = bron.naam;
+            this.vorige = null;
 
-            Console.WriteLine(bron.buren.Count);
+            //Console.WriteLine(bron.buren.Count);
 
+            
             foreach(KeyValuePair<Node, int> n in bron.buren)
             {
-                dijkstraburen.Add(new DijkstraNode(n.Key), n.Value);
-                Console.WriteLine(dijkstraburen.Count);
+                dijkstraburen.Add(new DijkstraNode(n.Key, this), n.Value);
             }
+
+            //Console.WriteLine(dijkstraburen.Count); //Test Print om te controleren of het klopt
         }
-        
+        public DijkstraNode(Node source, DijkstraNode vorige)
+        {
+            bron = source;
+            afstand = Int32.MaxValue / 2;
+            dijkstraburen = new Dictionary<DijkstraNode, int>();
+
+            open = new List<DijkstraNode>();
+            naam = bron.naam;
+            this.vorige = vorige;
+
+            //Console.WriteLine(bron.buren.Count);
+
+
+            foreach (KeyValuePair<Node, int> n in bron.buren)
+            {
+                if (n.Key != vorige.bron)
+                {
+                    dijkstraburen.Add(new DijkstraNode(n.Key, this), n.Value);
+                }
+
+            }
+
+            //Console.WriteLine(dijkstraburen.Count); //Test Print om te controleren of het klopt
+        }
+
 
         public string Dijkstra(DijkstraNode begin, Node eind)
         {
@@ -57,7 +84,6 @@ namespace ProjectHotel
             while (!Bezoek(deze, eind))
             {
                 //pak het tot nu toe kortste pad
-                
                 deze = open.Aggregate((l, r) => l.afstand < r.afstand ? l : r);
             }
 
@@ -91,7 +117,7 @@ namespace ProjectHotel
 
         bool Bezoek(DijkstraNode deze, Node eind)
         {
-            Console.WriteLine("Ik bezoek knoop: " + deze.naam);
+            //Console.WriteLine("Ik bezoek knoop: " + deze.naam);
 
             //checken op eind
             if (deze.bron == eind)

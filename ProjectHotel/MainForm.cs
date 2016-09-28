@@ -49,34 +49,46 @@ namespace ProjectHotel
             Gang a_4 = new Gang(4);
 
 
-            //Koppelt de aangemaakte gangen aan elkaar en de lobby.
+            //Koppeling van alle hotel ruimtes aan elkaar
             #region Koppeling
 
-            lobby.buren.Add(a_1, 1);
+            lobby.buren.Add(a_1, 1); // Lobby  ---> Gang_1
+            a_1.buren.Add(lobby, 1); // Lobby  <--- Gang_1
 
-            a_1.buren.Add(a_2, 1);
-            a_1.buren.Add(kamers[0], 1);
-            //kamers[0].buren.Add(a_1, 1);
+            a_1.buren.Add(a_2, 1); // Gang_1 ---> Gang_2
+            a_2.buren.Add(a_1, 1); // Gang_1 <--- Gang_2
+            a_1.buren.Add(kamers[0], 1); // Gang_1 ---> Kamer_1
+            kamers[0].buren.Add(a_1, 1); // Gang_1 <--- Kamer_1
 
-            a_2.buren.Add(a_3, 1);
-            a_2.buren.Add(kamers[1], 1);
-            //kamers[1].buren.Add(a_2, 1);
+            a_2.buren.Add(a_3, 1); // Gang_2 ---> Gang_3
+            a_3.buren.Add(a_2, 1); // Gang_2 <--- Gang_3
+            a_2.buren.Add(kamers[1], 1); // Gang_2 ---> Kamer_2
+            kamers[1].buren.Add(a_2, 1); // Gang_2 <--- Kamer_2
 
-            a_3.buren.Add(a_4, 1);
-            a_3.buren.Add(kamers[2], 1);
-            //kamers[2].buren.Add(a_3, 1);
+            a_3.buren.Add(a_4, 1); // Gang_3 ---> Gang_4
+            a_4.buren.Add(a_3, 1); // Gang_3 <--- Gang_4
+            a_3.buren.Add(kamers[2], 1); // Gang_3 ---> Kamer_3
+            kamers[2].buren.Add(a_3, 1); // Gang_3 <--- Kamer_3
 
-            a_4.buren.Add(kamers[3], 1);
-            //kamers[3].buren.Add(a_4, 1);
+            a_4.buren.Add(kamers[3], 1); // Gang_4 ---> Kamer_4
+            kamers[3].buren.Add(a_4, 1); // Gang_4 <--- Kamer_4
 
             #endregion
 
             #region DijkstraTest
+            //Er komt een gast
             Gast gast = new Gast();
-            gast.locatie = lobby;
-            gast.kamer = kamers[1];
+            gast.locatie = lobby; //begint in de lobby
+            gast.kamer = kamers[1]; //krijgt een kamer
+
+            //Gast gaat naar kamer en weer terug
             gast.PrintPath(gast.kamer);
-            //gast.PrintPath(lobby);
+            gast.PrintPath(lobby);
+
+            //Gast krijgt andere kamer en gaat weer lopen
+            gast.kamer = kamers[3];
+            gast.PrintPath(gast.kamer);
+            gast.PrintPath(lobby);
             #endregion
         }
 
