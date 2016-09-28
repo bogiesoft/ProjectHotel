@@ -15,18 +15,19 @@ namespace ProjectHotel
 {
     public partial class MainForm : Form
     {
-        Hoteloverzicht Overzicht = new Hoteloverzicht();
         public MainForm()
         {
-            List<Hoteloverzicht> Overzicht = JsonConvert.DeserializeObject<List<Hoteloverzicht>>(File.ReadAllText(@"..\..\..\Hotel.json"));
             if (!File.Exists(@"..\..\..\config.json"))
             {
                 Instellingen Instellingen = new Instellingen();
                 File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
             }
+            HotelInlezen inlezen = new HotelInlezen();
             InitializeComponent();
             InitializeHotel();
+            
         }
+        
         
         /// <summary>
         /// Methode waarin het hotel wordt aangemaakt en gekoppeld.
