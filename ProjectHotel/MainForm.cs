@@ -25,6 +25,7 @@ namespace ProjectHotel
             HotelInlezen inlezen = new HotelInlezen();
             InitializeComponent();
             InitializeHotel();
+
             
         }
         
@@ -90,6 +91,10 @@ namespace ProjectHotel
             gast.kamer = kamers[3];
             gast.PrintPath(gast.kamer);
             gast.PrintPath(lobby);
+            #endregion
+
+            #region Dll Pogingen
+            
             #endregion
         }
 
