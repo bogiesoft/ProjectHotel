@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace ProjectHotel
 {
@@ -30,6 +31,20 @@ namespace ProjectHotel
             start.afstand = 0;
             Console.WriteLine(start.Dijkstra(start, bestemming));
             locatie = bestemming;
+        }
+
+        public void DoStuff()
+        {
+            Timer aTimer = new Timer(1000 * 10 * 1);
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Enabled = true;
+        }
+
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Timer Test:");
+            PrintPath(kamer);
         }
     }
 
