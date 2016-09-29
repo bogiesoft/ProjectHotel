@@ -92,7 +92,6 @@ namespace ProjectHotel
             gast.kamer = kamers[3];
             gast.PrintPath(gast.kamer);
             gast.PrintPath(lobby);
-            gast.DoStuff();
             #endregion
 
             #region Dll Pogingen

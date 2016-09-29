@@ -33,18 +33,17 @@ namespace ProjectHotel
             locatie = bestemming;
         }
 
-        public void DoStuff()
+        public void DoStuff(Node bestemming)
         {
-            Timer aTimer = new Timer(1000 * 10 * 1);
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            aTimer.Enabled = true;
+            Timer moveTimer = new Timer(1000 * 10 * 1); //Maakt een nieuwe Timer aan; Parameters(1000 * Aantal Tijdseenheden * Tijdseenheid)
+            moveTimer.Elapsed += new ElapsedEventHandler((sender, e) => OnTimedEvent(sender, e, bestemming));
+            moveTimer.Enabled = true;
         }
 
-        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        private void OnTimedEvent(object sender, ElapsedEventArgs e, Node bestemming)
         {
             Console.WriteLine();
             Console.WriteLine("Timer Test:");
-            PrintPath(kamer);
         }
     }
 

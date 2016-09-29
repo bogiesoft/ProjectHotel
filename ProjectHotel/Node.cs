@@ -44,17 +44,14 @@ namespace ProjectHotel
             naam = bron.naam;
             this.vorige = null;
 
-            //Console.WriteLine(bron.buren.Count);
-
-            
-            foreach(KeyValuePair<Node, int> n in bron.buren)
+            foreach (KeyValuePair<Node, int> n in bron.buren)
             {
-                dijkstraburen.Add(new DijkstraNode(n.Key, this), n.Value);
+                dijkstraburen.Add(new DijkstraNode(n.Key, this, n.Value), n.Value);
             }
 
             //Console.WriteLine(dijkstraburen.Count); //Test Print om te controleren of het klopt
         }
-        public DijkstraNode(Node source, DijkstraNode vorige)
+        public DijkstraNode(Node source, DijkstraNode vorige, int tijd)
         {
             bron = source;
             afstand = Int32.MaxValue / 2;
@@ -64,17 +61,15 @@ namespace ProjectHotel
             naam = bron.naam;
             this.vorige = vorige;
 
-            //Console.WriteLine(bron.buren.Count);
-
-
             foreach (KeyValuePair<Node, int> n in bron.buren)
             {
                 if (n.Key != vorige.bron)
                 {
-                    dijkstraburen.Add(new DijkstraNode(n.Key, this), n.Value);
+                    dijkstraburen.Add(new DijkstraNode(n.Key, this, n.Value), n.Value);
                 }
-
             }
+
+            dijkstraburen.Add(vorige, tijd);
 
             //Console.WriteLine(dijkstraburen.Count); //Test Print om te controleren of het klopt
         }
