@@ -221,18 +221,18 @@ namespace ProjectHotel
     //    //tijdsduur bepaald de gast.
     //}
 
-    public class Lift : Node
-    {
-        List<Persoon> mensen; //moeten allemaal verplaatsen als de lift dat doey.
-    }
+    //public class Lift : Node
+    //{
+    //    List<Persoon> mensen; //moeten allemaal verplaatsen als de lift dat doey.
+    //}
 
-    public class Trap : Node
-    {
-        public Trap()
-        {
-            buren = new Dictionary<Node, int>();
-        }
+    //public class Trap : Node
+    //{
+    //    public Trap()
+    //    {
+    //        buren = new Dictionary<Node, int>();
+    //    }
 
-    }
+    //}
 
 }

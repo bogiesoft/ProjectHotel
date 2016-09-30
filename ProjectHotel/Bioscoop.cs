@@ -11,6 +11,7 @@ namespace ProjectHotel
     {
         public bool DraaitFilm;
         public int Tijdsduur;
+
         public Bioscoop(Point Positie, Point Dimensie)
         {
             Position = Positie;

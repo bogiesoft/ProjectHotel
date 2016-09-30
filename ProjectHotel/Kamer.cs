@@ -13,7 +13,8 @@ namespace ProjectHotel
         public bool Ingebruik;
         public bool Schoongemaakt;
         public string Classification { get; set; }
-        public Kamer(string SoortKamer, Point Positie, Point Dimensie)
+
+        public Kamer(string SoortKamer, Point Positie, Point Dimensie) : base()
         {
             Classification = SoortKamer;
             Position = Positie;

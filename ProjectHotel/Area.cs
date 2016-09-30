@@ -17,6 +17,7 @@ namespace ProjectHotel
         public int tijdsduur;
         public Image Afbeelding;
         protected Instellingen Instellingen = new Instellingen();
+
         public Area()
         {
             Instellingen = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));

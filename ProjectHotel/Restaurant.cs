@@ -9,10 +9,10 @@ namespace ProjectHotel
 {
     class Restaurant : Area
     {
-        public Gang gang;
         public int Tijdsduur;
         public int Capacity { get; set; }
-        public Restaurant(int MaxKlanten, Point Positie, Point Dimensie)
+
+        public Restaurant(int MaxKlanten, Point Positie, Point Dimensie) : base()
         {
             Capacity = MaxKlanten;
             Position = Positie;
