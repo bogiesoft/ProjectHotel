@@ -40,7 +40,8 @@ namespace ProjectHotel
             {
                 foreach (var item in HotelOverzicht)
                 {
-                    Teken.DrawImage(item.Afbeelding, width - (item.Position.X * 120), heigth - (item.Position.Y * 50), 120 * item.Dimension.X, 50 * item.Dimension.Y);
+                    //Teken.DrawImage(item.Afbeelding, width - (item.Position.X * 120), heigth - (item.Position.Y * 50), 120 * item.Dimension.X, 50 * item.Dimension.Y);
+                    Teken.DrawImage(item.Afbeelding, (item.Position.X * 120) - 120, (item.Position.Y * 50), 120 * item.Dimension.X, 50 * item.Dimension.Y);
                 }
             }
             //Afbeelding.Image = HotelLayout;
@@ -125,8 +126,8 @@ namespace ProjectHotel
         private void InstellingB_Click(object sender, EventArgs e)
         {
 
-            InstellingenForm Instelling = new InstellingenForm();
-            Instelling.ShowDialog();
+            InstellingenForm InstellingenMenu = new InstellingenForm();
+            InstellingenMenu.ShowDialog();
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)

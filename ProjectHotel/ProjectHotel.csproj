@@ -57,7 +57,6 @@
     <Compile Include="Bioscoop.cs" />
     <Compile Include="Fitness.cs" />
     <Compile Include="HotelAanmaken.cs" />
-    <Compile Include="HotelInlezen.cs" />
     <Compile Include="Area.cs" />
     <Compile Include="Kamer.cs" />
     <Compile Include="Models\HotelLayout.cs" />
@@ -113,7 +112,7 @@
   <ItemGroup>
     <Content Include="Resources\cinema.PNG" />
     <Content Include="Resources\elevator.PNG" />
-    <Content Include="Resources\fitnesss.png" />
+    <Content Include="Resources\fitness.png" />
     <Content Include="Resources\hotel.ico" />
     <Content Include="Resources\HotelEvents.dll" />
     <Content Include="Resources\lobby.PNG" />

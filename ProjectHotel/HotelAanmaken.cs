@@ -1,6 +1,8 @@
-﻿using ProjectHotel.Models;
+﻿using Newtonsoft.Json;
+using ProjectHotel.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +13,9 @@ namespace ProjectHotel
     {
         List<HotelLayout> HotelOverzicht = new List<HotelLayout>();
         List<Kamer> KamerLijst = new List<Kamer>();
-        HotelInlezen Inlezen = new HotelInlezen();
         public HotelAanmaken()
         {
-            HotelOverzicht = Inlezen.Inlezen();
+            HotelOverzicht = Inlezen();
         }
         public List<Area> HotelMaken()
         {
@@ -46,6 +47,20 @@ namespace ProjectHotel
                 }
             }
             return Area;
+        }
+        private List<HotelLayout> Inlezen()
+        {
+            List<HotelLayout> InlezenBestand = new List<HotelLayout>();
+            try
+            {
+                InlezenBestand = JsonConvert.DeserializeObject<List<HotelLayout>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Bestand niet gevonden:");
+                Console.WriteLine(e.Message);
+            }
+            return InlezenBestand;
         }
     }
 }

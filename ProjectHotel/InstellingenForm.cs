@@ -17,8 +17,20 @@ namespace ProjectHotel
         Instellingen Instellingen = new Instellingen();
         public InstellingenForm()
         {
-            Instellingen = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
             InitializeComponent();
+            FormVoorbereiden();
+        }
+        private void FormVoorbereiden()
+        {
+            try
+            {
+                Instellingen = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Het bestand kon niet gevonden worden" + e);
+                File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
+            }
             TijdeenCB.SelectedItem = Instellingen.Tijdseenheid.ToString();
             SchoonTB.Text = Instellingen.Schoonmaakduur.ToString();
             BiosTB.Text = Instellingen.Bioscoopduur.ToString();

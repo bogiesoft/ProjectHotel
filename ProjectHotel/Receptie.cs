@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,11 @@ namespace ProjectHotel
 {
     class Receptie : Area
     {
-        public List<Kamer> kamers; //Lijst met kamers van het hotel
-        public List<Gast> wachtrij; //Rij met gasten voor de receptie
-        public Gast current; //Geeft de huidige gast bij de receptie aan
+        public List<Kamer> Kamers; //Lijst met kamers van het hotel
+        public List<Gast> Wachtrij; //Rij met gasten voor de receptie
+        public Gast Current; //Geeft de huidige gast bij de receptie aan
 
-        public Receptie()
+        public Receptie(List<Kamer> Kamer, Point Positie, Point Dimensie)
         {
 
         }

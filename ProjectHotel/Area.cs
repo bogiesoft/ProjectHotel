@@ -14,7 +14,7 @@ namespace ProjectHotel
         public string AreaType { get; set; }
         public Point Position { get; set; }
         public Point Dimension { get; set; }
-        public int tijdsduur;
+        public int Tijdsduur;
         public Image Afbeelding;
         protected Instellingen Instellingen = new Instellingen();
 

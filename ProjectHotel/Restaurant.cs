@@ -9,15 +9,14 @@ namespace ProjectHotel
 {
     class Restaurant : Area
     {
-        public int Tijdsduur;
         public int Capacity { get; set; }
 
-        public Restaurant(int MaxKlanten, Point Positie, Point Dimensie) : base()
+        public Restaurant(int MaxKlanten, Point Positie, Point Dimensie)
         {
             Capacity = MaxKlanten;
             Position = Positie;
             Dimension = Dimensie;
-            tijdsduur = Instellingen.Restaurantduur;
+            Tijdsduur = Instellingen.Restaurantduur;
             Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\restaurant.png");
         }
     }
