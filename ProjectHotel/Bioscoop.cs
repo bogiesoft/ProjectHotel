@@ -15,6 +15,8 @@ namespace ProjectHotel
         {
             Position = Positie;
             Dimension = Dimensie;
+            tijdsduur = Instellingen.Bioscoopduur;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\cinema.png");
         }
     }
 }

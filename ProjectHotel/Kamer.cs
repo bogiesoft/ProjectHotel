@@ -18,6 +18,7 @@ namespace ProjectHotel
             Classification = SoortKamer;
             Position = Positie;
             Dimension = Dimensie;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\room.png");
         }
     }
 }

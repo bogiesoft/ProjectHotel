@@ -14,5 +14,6 @@ namespace ProjectHotel.Models
         public int Capacity { get; set; }
         public Point Position { get; set; }
         public Point Dimension { get; set; }
+        public Image Afbeelding { get; set; }
     }
 }

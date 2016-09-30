@@ -111,8 +111,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\cinema.PNG" />
+    <Content Include="Resources\elevator.PNG" />
+    <Content Include="Resources\fitnesss.png" />
     <Content Include="Resources\hotel.ico" />
     <Content Include="Resources\HotelEvents.dll" />
+    <Content Include="Resources\lobby.PNG" />
+    <Content Include="Resources\restaurant.PNG" />
+    <Content Include="Resources\room.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
