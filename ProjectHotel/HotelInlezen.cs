@@ -15,56 +15,55 @@ namespace ProjectHotel
         HotelLayout HotelOverzicht = new HotelLayout();
         public List<HotelLayout> Inlezen()
         {
-            List<HotelLayout> Faciliteiten = new List<HotelLayout>();
-            try
-            {
-                List<HotelLayout> InlezenBestand = JsonConvert.DeserializeObject<List<HotelLayout>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
-                foreach (var item in InlezenBestand)
-                {
-                    switch (item.AreaType)
-                    {
-                        case "Room":
-                            HotelOverzicht.Classification = item.Classification;
-                            HotelOverzicht.Dimension = item.Dimension;
-                            HotelOverzicht.Position = item.Position;
-                            HotelOverzicht.AreaType = item.AreaType;
-                            Faciliteiten.Add(HotelOverzicht);
-                            break;
-                        case "Cinema":
-                            HotelOverzicht.Position = item.Position;
-                            HotelOverzicht.Dimension = item.Dimension;
-                            HotelOverzicht.AreaType = item.AreaType;
-                            Faciliteiten.Add(HotelOverzicht);
-                            break;
-                        case "Restaurant":
-                            HotelOverzicht.Position = item.Position;
-                            HotelOverzicht.Dimension = item.Dimension;
-                            HotelOverzicht.Capacity = item.Capacity;
-                            HotelOverzicht.AreaType = item.AreaType;
-                            Faciliteiten.Add(HotelOverzicht);
-                            break;
-                        case "Fitness":
-                            HotelOverzicht.Position = item.Position;
-                            HotelOverzicht.Dimension = item.Dimension;
-                            HotelOverzicht.AreaType = item.AreaType;
-                            Faciliteiten.Add(HotelOverzicht);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Bestand niet gevonden:");
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                //Moet een finally bij..?
-            }
-
-            return Faciliteiten;
+            //List<HotelLayout> Faciliteiten = new List<HotelLayout>();
+            //try
+            //{
+            //    List<HotelLayout> InlezenBestand = JsonConvert.DeserializeObject<List<HotelLayout>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
+            //    //foreach (var item in InlezenBestand)
+            //    //{
+            //    //    switch (item.AreaType)
+            //    //    {
+            //    //        case "Room":
+            //    //            HotelOverzicht.Classification = item.Classification;
+            //    //            HotelOverzicht.Dimension = item.Dimension;
+            //    //            HotelOverzicht.Position = item.Position;
+            //    //            HotelOverzicht.AreaType = item.AreaType;
+            //    //            HotelOverzicht.Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\room.png");
+            //    //            Faciliteiten.Add(HotelOverzicht);
+            //    //            break;
+            //    //        case "Cinema":
+            //    //            HotelOverzicht.Position = item.Position;
+            //    //            HotelOverzicht.Dimension = item.Dimension;
+            //    //            HotelOverzicht.AreaType = item.AreaType;
+            //    //            HotelOverzicht.Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\cinema.png");
+            //    //            Faciliteiten.Add(HotelOverzicht);
+            //    //            break;
+            //    //        case "Restaurant":
+            //    //            HotelOverzicht.Position = item.Position;
+            //    //            HotelOverzicht.Dimension = item.Dimension;
+            //    //            HotelOverzicht.Capacity = item.Capacity;
+            //    //            HotelOverzicht.AreaType = item.AreaType;
+            //    //            HotelOverzicht.Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\restaurant.png");
+            //    //            Faciliteiten.Add(HotelOverzicht);
+            //    //            break;
+            //    //        case "Fitness":
+            //    //            HotelOverzicht.Position = item.Position;
+            //    //            HotelOverzicht.Dimension = item.Dimension;
+            //    //            HotelOverzicht.AreaType = item.AreaType;
+            //    //            HotelOverzicht.Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\fitnesss.png");
+            //    //            Faciliteiten.Add(HotelOverzicht);
+            //    //            break;
+            //    //        default:
+            //    //            break;
+            //    //    }
+            //    //}
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Bestand niet gevonden:");
+            //    Console.WriteLine(e.Message);
+            //}
+            return JsonConvert.DeserializeObject<List<HotelLayout>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
         }
     }
 }

@@ -17,6 +17,8 @@ namespace ProjectHotel
             Capacity = MaxKlanten;
             Position = Positie;
             Dimension = Dimensie;
+            tijdsduur = Instellingen.Restaurantduur;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\restaurant.png");
         }
     }
 }

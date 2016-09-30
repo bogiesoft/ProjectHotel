@@ -9,10 +9,11 @@ namespace ProjectHotel
 {
     class Fitness : Area
     {
-        public Fitness(Point Positie, Point Dimensie) : base()
+        public Fitness(Point Positie, Point Dimensie)
         {
             Position = Positie;
             Dimension = Dimensie;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\fitness.png");
         }
     }
 }

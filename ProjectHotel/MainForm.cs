@@ -16,6 +16,8 @@ namespace ProjectHotel
 {
     public partial class MainForm : Form
     {
+        Bitmap HotelLayout = new Bitmap(971, 480);
+        List<Area> HotelOverzicht = new List<Area>();
         public MainForm()
         {
             if (!File.Exists(@"..\..\..\config.json"))
@@ -23,13 +25,24 @@ namespace ProjectHotel
                 Instellingen Instellingen = new Instellingen();
                 File.WriteAllText(@"..\..\..\config.json", JsonConvert.SerializeObject(Instellingen));
             }
-            HotelInlezen inlezen = new HotelInlezen();
+            HotelAanmaken Aanmaken = new HotelAanmaken();
             InitializeComponent();
+            HotelOverzicht = Aanmaken.HotelMaken();
             //InitializeHotel();
+            TekenHotel();
 
-            
         }
-        
+        private void TekenHotel()
+        {
+            using (Graphics Teken = Graphics.FromImage(HotelLayout))
+            {
+                foreach (var item in HotelOverzicht)
+                {
+                    Teken.DrawImage(item.Afbeelding, item.Position.X * item.Afbeelding.Width, item.Position.Y * item.Afbeelding.Height, item.Afbeelding.Width, item.Afbeelding.Height);
+                }
+            }
+            Afbeelding.Image = HotelLayout;
+        }
         
         /// <summary>
         /// Methode waarin het hotel wordt aangemaakt en gekoppeld.

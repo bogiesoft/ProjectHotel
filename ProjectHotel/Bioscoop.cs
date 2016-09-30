@@ -12,10 +12,12 @@ namespace ProjectHotel
         public bool DraaitFilm;
         public int Tijdsduur;
 
-        public Bioscoop(Point Positie, Point Dimensie) : base()
+        public Bioscoop(Point Positie, Point Dimensie)
         {
             Position = Positie;
             Dimension = Dimensie;
+            tijdsduur = Instellingen.Bioscoopduur;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\cinema.png");
         }
     }
 }
