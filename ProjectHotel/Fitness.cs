@@ -9,7 +9,7 @@ namespace ProjectHotel
 {
     class Fitness : Area
     {
-        public Fitness(Point Positie, Point Dimensie)
+        public Fitness(Point Positie, Point Dimensie) : base()
         {
             Position = Positie;
             Dimension = Dimensie;

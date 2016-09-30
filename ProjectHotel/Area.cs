@@ -14,10 +14,15 @@ namespace ProjectHotel
         public string AreaType { get; set; }
         public Point Position { get; set; }
         public Point Dimension { get; set; }
+        public List<Area> Buren;
+
         protected Instellingen Instellingen = new Instellingen();
+
         public Area()
         {
             Instellingen = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
+            Buren = new List<Area>();
+
         }
     }
 }

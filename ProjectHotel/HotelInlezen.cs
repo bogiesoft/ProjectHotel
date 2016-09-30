@@ -59,6 +59,11 @@ namespace ProjectHotel
                 Console.WriteLine("Bestand niet gevonden:");
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                //Moet een finally bij..?
+            }
+
             return Faciliteiten;
         }
     }
