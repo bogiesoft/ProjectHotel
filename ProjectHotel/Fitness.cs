@@ -13,7 +13,7 @@ namespace ProjectHotel
         {
             Position = Positie;
             Dimension = Dimensie;
-            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\fitness.png");
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\fitnesss.png");
         }
     }
 }

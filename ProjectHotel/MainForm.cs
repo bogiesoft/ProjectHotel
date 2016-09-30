@@ -38,10 +38,10 @@ namespace ProjectHotel
             {
                 foreach (var item in HotelOverzicht)
                 {
-                    Teken.DrawImage(item.Afbeelding, item.Position.X * item.Afbeelding.Width, item.Position.Y * item.Afbeelding.Height, item.Afbeelding.Width, item.Afbeelding.Height);
+                    Teken.DrawImage(item.Afbeelding, width - (item.Position.X * 130), item.Position.Y * 50, 130, 50);
                 }
             }
-            Afbeelding.Image = HotelLayout;
+            //Afbeelding.Image = HotelLayout;
         }
         
         /// <summary>
@@ -125,6 +125,11 @@ namespace ProjectHotel
 
             InstellingenForm Instelling = new InstellingenForm();
             Instelling.ShowDialog();
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(HotelLayout, new Point(0, 0));
         }
     }
 }
