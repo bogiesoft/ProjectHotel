@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectHotel
 {
-    class Restaurant
+    class Restaurant : Area
     {
-        public int MaxKlanten { get; set; }
-        public Restaurant()
+        public Gang gang;
+        public int Tijdsduur;
+        public int Capacity { get; set; }
+        public Restaurant(int MaxKlanten, Point Positie, Point Dimensie)
         {
-            MaxKlanten = 100;
+            Capacity = MaxKlanten;
+            Position = Positie;
+            Dimension = Dimensie;
         }
-        
     }
 }

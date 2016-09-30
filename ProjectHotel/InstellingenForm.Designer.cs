@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstellingenForm));
             this.OpslaanB = new System.Windows.Forms.Button();
             this.AnnuleerB = new System.Windows.Forms.Button();
             this.SchoonL = new System.Windows.Forms.Label();
@@ -206,6 +207,7 @@
             this.Controls.Add(this.AnnuleerB);
             this.Controls.Add(this.OpslaanB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "InstellingenForm";
             this.Text = "Instellingen";

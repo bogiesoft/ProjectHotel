@@ -14,15 +14,11 @@ namespace ProjectHotel
         public string naam;
         public Dictionary<Node, int> buren; //Dictionary met de Buren en de Tijd die het kost om daar naartoe te gaan.
         int tijdsduur;
-        public Point Position { get; set; }
-        public Point Dimension { get; set; }
-
-        protected Instellingen Instelling = new Instellingen();
 
         public Node()
         {
             
-            Instelling = JsonConvert.DeserializeObject<Instellingen>(File.ReadAllText(@"..\..\..\config.json"));
+            
         }
     }
 
@@ -47,6 +43,7 @@ namespace ProjectHotel
             foreach (KeyValuePair<Node, int> n in bron.buren)
             {
                 dijkstraburen.Add(new DijkstraNode(n.Key, this, n.Value), n.Value);
+                Console.WriteLine(n.Value);
             }
 
             //Console.WriteLine(dijkstraburen.Count); //Test Print om te controleren of het klopt
@@ -66,6 +63,7 @@ namespace ProjectHotel
                 if (n.Key != vorige.bron)
                 {
                     dijkstraburen.Add(new DijkstraNode(n.Key, this, n.Value), n.Value);
+                    Console.WriteLine(n.Value);
                 }
             }
 
@@ -146,20 +144,20 @@ namespace ProjectHotel
         }
     }
 
-    public class Kamer : Node
-    {
-        public int nummer;
-        public bool ingebruik;
-        public bool schoongemaakt;
-        public string Classification { get; set; }
+    //public class Kamer : Node
+    //{
+    //    public int nummer;
+    //    public bool ingebruik;
+    //    public bool schoongemaakt;
+    //    public string Classification { get; set; }
 
-        public Kamer(int nummer)
-        {
-            this.nummer = nummer;
-            naam = "Kamer_" + nummer.ToString();
-            buren = new Dictionary<Node, int>();
-        }
-    }
+    //    public Kamer(int nummer)
+    //    {
+    //        this.nummer = nummer;
+    //        naam = "Kamer_" + nummer.ToString();
+    //        buren = new Dictionary<Node, int>();
+    //    }
+    //}
 
     public class Gang : Node
     {
@@ -171,57 +169,57 @@ namespace ProjectHotel
         }
     }
 
-    public class Receptie : Node
-    {
-        public List<Kamer> kamers; //Lijst met kamers van het hotel
-        public List<Gast> wachtrij; //Rij met gasten voor de receptie
-        public Gast current; //Geeft de huidige gast bij de receptie aan
+    //public class Receptie : Node
+    //{
+    //    public List<Kamer> kamers; //Lijst met kamers van het hotel
+    //    public List<Gast> wachtrij; //Rij met gasten voor de receptie
+    //    public Gast current; //Geeft de huidige gast bij de receptie aan
 
-        /// <summary>
-        /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers.
-        /// </summary>
-        /// <param name="kamers">Lijst met alle Kamers in het hotel.</param>
-        public Receptie(List<Kamer> kamers)
-        {
-            naam = "Receptie";
-            this.kamers = kamers; //Slaat de gekregen kamerlijst op
-            buren = new Dictionary<Node, int>();
-        }
+    //    /// <summary>
+    //    /// Maakt een nieuwe Receptie aan en geeft een lijst met bestaande kamers.
+    //    /// </summary>
+    //    /// <param name="kamers">Lijst met alle Kamers in het hotel.</param>
+    //    public Receptie(List<Kamer> kamers)
+    //    {
+    //        naam = "Receptie";
+    //        this.kamers = kamers; //Slaat de gekregen kamerlijst op
+    //        buren = new Dictionary<Node, int>();
+    //    }
         
-    }
+    //}
 
-    public class Restaurant : Node
-    {
-        public Gang gang;
-        public int maxklanten;
-        public int tijdsduur;
-        public int Capacity { get; set; }
-
-
-        public Restaurant()
-        {
-            this.naam = naam;
-        }
-    }
-
-    public class Bioscoop : Node
-    {
-        public bool draaitfilm;
-        public int tijdsduur;
-
-        public Bioscoop()
-        {
-            tijdsduur = Instelling.Bioscoopduur;
-            naam = "Bioscoop";
-            buren = new Dictionary<Node, int>();
-        }
-    }
+    //public class Restaurant : Node
+    //{
+    //    public Gang gang;
+    //    public int maxklanten;
+    //    public int tijdsduur;
+    //    public int Capacity { get; set; }
 
 
-    public class Fitness : Node
-    {
-        //tijdsduur bepaald de gast.
-    }
+    //    public Restaurant()
+    //    {
+    //        this.naam = naam;
+    //    }
+    //}
+
+    //public class Bioscoop : Node
+    //{
+    //    public bool draaitfilm;
+    //    public int tijdsduur;
+
+    //    public Bioscoop()
+    //    {
+    //        tijdsduur = Instelling.Bioscoopduur;
+    //        naam = "Bioscoop";
+    //        buren = new Dictionary<Node, int>();
+    //    }
+    //}
+
+
+    //public class Fitness : Node
+    //{
+    //    //tijdsduur bepaald de gast.
+    //}
 
     public class Lift : Node
     {

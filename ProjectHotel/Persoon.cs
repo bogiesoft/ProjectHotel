@@ -16,13 +16,13 @@ namespace ProjectHotel
 
     public class Gast : Persoon
     {
-        public Kamer kamer;
+        //public Kamer kamer;
         public int fitnesstijd;
 
         public Gast()
         {
             locatie = null;
-            kamer = null;
+            //kamer = null;
         }
 
         public void PrintPath(Node bestemming)

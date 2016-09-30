@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectHotel.Models
 {
-    public class Hoteloverzicht
+    class HotelLayout
     {
         public string Classification { get; set; }
         public string AreaType { get; set; }

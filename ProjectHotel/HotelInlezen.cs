@@ -12,55 +12,47 @@ namespace ProjectHotel
 {
     class HotelInlezen
     {
-        public List<Kamer> Kamers { get; set; }
-        Hoteloverzicht Overzicht = new Hoteloverzicht();
-        public HotelInlezen()
+        HotelLayout HotelOverzicht = new HotelLayout();
+        public List<HotelLayout> Inlezen()
         {
-            Kamers = new List<Kamer>();
-            Inlezen();
-        }
-        private List<Node> Inlezen()
-        {
-            List<Node> Faciliteiten = new List<Node>();
+            List<HotelLayout> Faciliteiten = new List<HotelLayout>();
             try
             {
-                List<Hoteloverzicht> Overzicht = JsonConvert.DeserializeObject<List<Hoteloverzicht>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
-                foreach (var item in Overzicht)
+                List<HotelLayout> InlezenBestand = JsonConvert.DeserializeObject<List<HotelLayout>>(File.ReadAllText(@"..\..\..\Hotel.layout"));
+                foreach (var item in InlezenBestand)
                 {
                     switch (item.AreaType)
                     {
                         case "Room":
-                            Kamers.Add(new Kamer(Kamers.Count));
-                            Kamers[Kamers.Count - 1].Classification = item.Classification;
-                            Kamers[Kamers.Count - 1].Dimension = item.Dimension;
-                            Kamers[Kamers.Count - 1].Position = item.Position;
-                            Faciliteiten.Add(Kamers[Kamers.Count - 1]);
+                            HotelOverzicht.Classification = item.Classification;
+                            HotelOverzicht.Dimension = item.Dimension;
+                            HotelOverzicht.Position = item.Position;
+                            HotelOverzicht.AreaType = item.AreaType;
+                            Faciliteiten.Add(HotelOverzicht);
                             break;
                         case "Cinema":
-                            Bioscoop bioscoop = new Bioscoop();
-                            bioscoop.Position = item.Position;
-                            bioscoop.Dimension = item.Dimension;
-                            Faciliteiten.Add(bioscoop);
+                            HotelOverzicht.Position = item.Position;
+                            HotelOverzicht.Dimension = item.Dimension;
+                            HotelOverzicht.AreaType = item.AreaType;
+                            Faciliteiten.Add(HotelOverzicht);
                             break;
                         case "Restaurant":
-                            Restaurant restaurant = new Restaurant();
-                            restaurant.Position = item.Position;
-                            restaurant.Dimension = item.Dimension;
-                            restaurant.Capacity = item.Capacity;
-                            Faciliteiten.Add(restaurant);
+                            HotelOverzicht.Position = item.Position;
+                            HotelOverzicht.Dimension = item.Dimension;
+                            HotelOverzicht.Capacity = item.Capacity;
+                            HotelOverzicht.AreaType = item.AreaType;
+                            Faciliteiten.Add(HotelOverzicht);
                             break;
                         case "Fitness":
-                            Fitness fitness = new Fitness();
-                            fitness.Position = item.Position;
-                            fitness.Dimension = item.Dimension;
-                            Faciliteiten.Add(fitness);
+                            HotelOverzicht.Position = item.Position;
+                            HotelOverzicht.Dimension = item.Dimension;
+                            HotelOverzicht.AreaType = item.AreaType;
+                            Faciliteiten.Add(HotelOverzicht);
+                            break;
+                        default:
                             break;
                     }
                 }
-                Receptie receptie = new Receptie(Kamers);
-                receptie.Position = new Point(1, 1);
-                receptie.Dimension = new Point(8, 6);
-                Faciliteiten.Add(receptie);
             }
             catch (Exception e)
             {

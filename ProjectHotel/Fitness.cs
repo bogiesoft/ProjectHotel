@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectHotel
 {
-    class Bioscoop : Area
+    class Fitness : Area
     {
-        public bool DraaitFilm;
-        public int Tijdsduur;
-        public Bioscoop(Point Positie, Point Dimensie)
+        public Fitness(Point Positie, Point Dimensie)
         {
             Position = Positie;
             Dimension = Dimensie;

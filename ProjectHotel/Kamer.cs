@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectHotel
 {
-    class Kamer
+    class Kamer : Area
     {
-        public int MaxKamer { get; set; }
-        public bool Ingebruik { get; set; }
-        public bool Schoonmaken { get; set; }
-        public Kamer()
+        public int nummer;
+        public bool Ingebruik;
+        public bool Schoongemaakt;
+        public string Classification { get; set; }
+        public Kamer(string SoortKamer, Point Positie, Point Dimensie)
         {
-            MaxKamer = 60;
+            Classification = SoortKamer;
+            Position = Positie;
+            Dimension = Dimensie;
         }
     }
 }
