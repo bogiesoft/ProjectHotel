@@ -34,11 +34,13 @@ namespace ProjectHotel
         }
         private void TekenHotel()
         {
+            int width = HotelLayout.Size.Width - -10;
+            int heigth = HotelLayout.Size.Height - 50;
             using (Graphics Teken = Graphics.FromImage(HotelLayout))
             {
                 foreach (var item in HotelOverzicht)
                 {
-                    Teken.DrawImage(item.Afbeelding, width - (item.Position.X * 130), item.Position.Y * 50, 130, 50);
+                    Teken.DrawImage(item.Afbeelding, width - (item.Position.X * 120), heigth - (item.Position.Y * 50), 120 * item.Dimension.X, 50 * item.Dimension.Y);
                 }
             }
             //Afbeelding.Image = HotelLayout;

@@ -32,7 +32,7 @@ namespace ProjectHotel
                         Restaurant Restaurant = new Restaurant(item.Capacity, item.Position, item.Dimension);
                         Area.Add(Restaurant);
                         break;
-                    case "Bioscoop":
+                    case "Cinema":
                         Bioscoop Bioscoop = new Bioscoop(item.Position, item.Dimension);
                         Area.Add(Bioscoop);
                         break;
