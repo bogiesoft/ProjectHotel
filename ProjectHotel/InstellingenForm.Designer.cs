@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstellingenForm));
             this.OpslaanB = new System.Windows.Forms.Button();
             this.AnnuleerB = new System.Windows.Forms.Button();
@@ -45,6 +46,8 @@
             this.SchoonnoodL = new System.Windows.Forms.Label();
             this.TijdeenCB = new System.Windows.Forms.ComboBox();
             this.TijdeenL = new System.Windows.Forms.Label();
+            this.FoutMelding = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.FoutMelding)).BeginInit();
             this.SuspendLayout();
             // 
             // OpslaanB
@@ -72,27 +75,27 @@
             this.SchoonL.AutoSize = true;
             this.SchoonL.Location = new System.Drawing.Point(13, 52);
             this.SchoonL.Name = "SchoonL";
-            this.SchoonL.Size = new System.Drawing.Size(96, 13);
+            this.SchoonL.Size = new System.Drawing.Size(94, 13);
             this.SchoonL.TabIndex = 2;
-            this.SchoonL.Text = "Schoonmaaksduur";
+            this.SchoonL.Text = "Schoonmaak duur";
             // 
             // BiosL
             // 
             this.BiosL.AutoSize = true;
             this.BiosL.Location = new System.Drawing.Point(13, 86);
             this.BiosL.Name = "BiosL";
-            this.BiosL.Size = new System.Drawing.Size(72, 13);
+            this.BiosL.Size = new System.Drawing.Size(75, 13);
             this.BiosL.TabIndex = 3;
-            this.BiosL.Text = "Bioscoopduur";
+            this.BiosL.Text = "Bioscoop duur";
             // 
             // TrapL
             // 
             this.TrapL.AutoSize = true;
             this.TrapL.Location = new System.Drawing.Point(12, 121);
             this.TrapL.Name = "TrapL";
-            this.TrapL.Size = new System.Drawing.Size(98, 13);
+            this.TrapL.Size = new System.Drawing.Size(101, 13);
             this.TrapL.TabIndex = 4;
-            this.TrapL.Text = "Trapduur per etage";
+            this.TrapL.Text = "Trap duur per etage";
             // 
             // SchoonTB
             // 
@@ -127,9 +130,9 @@
             this.DoodL.AutoSize = true;
             this.DoodL.Location = new System.Drawing.Point(12, 158);
             this.DoodL.Name = "DoodL";
-            this.DoodL.Size = new System.Drawing.Size(116, 13);
+            this.DoodL.Size = new System.Drawing.Size(114, 13);
             this.DoodL.TabIndex = 9;
-            this.DoodL.Text = "Tijdsduur voor de dood";
+            this.DoodL.Text = "Max wachttijd tot dood";
             // 
             // RestaurantTB
             // 
@@ -150,18 +153,18 @@
             this.RestaurantL.AutoSize = true;
             this.RestaurantL.Location = new System.Drawing.Point(13, 194);
             this.RestaurantL.Name = "RestaurantL";
-            this.RestaurantL.Size = new System.Drawing.Size(83, 13);
+            this.RestaurantL.Size = new System.Drawing.Size(112, 13);
             this.RestaurantL.TabIndex = 12;
-            this.RestaurantL.Text = "Restaurant duur";
+            this.RestaurantL.Text = "Restaurant etens duur";
             // 
             // SchoonnoodL
             // 
             this.SchoonnoodL.AutoSize = true;
             this.SchoonnoodL.Location = new System.Drawing.Point(13, 230);
             this.SchoonnoodL.Name = "SchoonnoodL";
-            this.SchoonnoodL.Size = new System.Drawing.Size(123, 13);
+            this.SchoonnoodL.Size = new System.Drawing.Size(121, 13);
             this.SchoonnoodL.TabIndex = 13;
-            this.SchoonnoodL.Text = "Schoonmaaksduur nood";
+            this.SchoonnoodL.Text = "Schoonmaak duur nood";
             // 
             // TijdeenCB
             // 
@@ -184,6 +187,11 @@
             this.TijdeenL.Size = new System.Drawing.Size(67, 13);
             this.TijdeenL.TabIndex = 15;
             this.TijdeenL.Text = "Tijdseenheid";
+            // 
+            // FoutMelding
+            // 
+            this.FoutMelding.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.FoutMelding.ContainerControl = this;
             // 
             // InstellingenForm
             // 
@@ -211,6 +219,7 @@
             this.MaximizeBox = false;
             this.Name = "InstellingenForm";
             this.Text = "Instellingen";
+            ((System.ComponentModel.ISupportInitialize)(this.FoutMelding)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +243,6 @@
         private System.Windows.Forms.Label SchoonnoodL;
         private System.Windows.Forms.ComboBox TijdeenCB;
         private System.Windows.Forms.Label TijdeenL;
+        private System.Windows.Forms.ErrorProvider FoutMelding;
     }
 }

@@ -2,6 +2,7 @@
 using ProjectHotel.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,6 @@ namespace ProjectHotel
     class HotelAanmaken
     {
         List<HotelLayout> HotelOverzicht = new List<HotelLayout>();
-        List<Kamer> KamerLijst = new List<Kamer>();
         public HotelAanmaken()
         {
             HotelOverzicht = Inlezen();
@@ -20,6 +20,7 @@ namespace ProjectHotel
         public List<Area> HotelMaken()
         {
             List<Area> Area = new List<Area>();
+            List<Kamer> KamerLijst = new List<Kamer>();
             foreach (var item in HotelOverzicht)
             {
                 switch (item.AreaType)
@@ -46,6 +47,8 @@ namespace ProjectHotel
                         break;
                 }
             }
+            Receptie Receptie = new Receptie(KamerLijst, new Point(1,0), new Point(8, 1));
+            Area.Add(Receptie);
             return Area;
         }
         private List<HotelLayout> Inlezen()

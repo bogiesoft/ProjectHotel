@@ -47,13 +47,17 @@ namespace ProjectHotel
 
         private void OpslaanB_Click(object sender, EventArgs e)
         {
-            if (!SchoonTB.Text.All(char.IsDigit) || !BiosTB.Text.All(char.IsDigit) || !TrapTB.Text.All(char.IsDigit) || !DoodTB.Text.All(char.IsDigit) || 
-                !RestaurantTB.Text.All(char.IsDigit) || !SchoonnoodTB.Text.All(char.IsDigit) || SchoonTB.Text.Equals("") || BiosTB.Text.Equals("") || 
-                TrapTB.Text.Equals("") || DoodTB.Text.Equals("") || RestaurantTB.Text.Equals("") || SchoonnoodTB.Text.Equals("") || TijdeenCB.Text.Equals(""))
+            var Velden = Controls.OfType<TextBox>();
+            bool VeldenCorrect = true;
+            foreach (var item in Velden)
             {
-                MessageBox.Show("Vul alle velden correct in aub");
+                if (string.IsNullOrWhiteSpace(item.Text) || !item.Text.All(char.IsDigit))
+                {
+                    VeldenCorrect = false;
+                    FoutMelding.SetError(item, "Dit veld is incorrect ingevuld");
+                }
             }
-            else
+            if(VeldenCorrect == true)
             {
                 Instellingen.Tijdseenheid = Double.Parse(TijdeenCB.Text);
                 Instellingen.Schoonmaakduur = Int32.Parse(SchoonTB.Text);

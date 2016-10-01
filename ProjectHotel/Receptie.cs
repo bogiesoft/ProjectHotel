@@ -15,7 +15,10 @@ namespace ProjectHotel
 
         public Receptie(List<Kamer> Kamer, Point Positie, Point Dimensie)
         {
-
+            Kamers = Kamer;
+            Position = Positie;
+            Dimension = Dimensie;
+            Afbeelding = Image.FromFile(@"..\..\..\ProjectHotel\Resources\lobby.png");
         }
     }
 }
